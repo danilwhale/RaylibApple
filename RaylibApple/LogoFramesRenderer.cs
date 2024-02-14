@@ -2,7 +2,7 @@
 
 namespace RaylibApple;
 
-public class CanvasRenderer
+public class LogoFramesRenderer
 {
     public const int LogoSize = 32;
     public const float SizeFactor = LogoSize / 256.0f;
@@ -10,33 +10,36 @@ public class CanvasRenderer
     public const int BorderSize = (int)(16.0f * SizeFactor);
     public const int TextOffsetX = (int)(44.0f * SizeFactor);
     public const int TextOffsetY = (int)(48.0f * SizeFactor);
+    
     public int CurrentFrame = 0;
-    public Color[][][] Frames;
+    public Color[][][] Frames = null!;
 
     public void Render()
     {
-        for (var x = 0; x < Frames[CurrentFrame].GetLength(0); x++)
-        for (var y = 0; y < Frames[CurrentFrame][x].GetLength(0); y++)
+        for (var x = 0; x < Frames[CurrentFrame].Length; x++)
+        for (var y = 0; y < Frames[CurrentFrame][x].Length; y++)
         {
             var pixel = Frames[CurrentFrame][x][y];
-            var lightValue = (pixel.R + pixel.G + pixel.B) / 3.0f / 255.0f;
+            
+            var brightnessValue = (pixel.R + pixel.G + pixel.B) / 3.0f / 255.0f;
 
-            if (lightValue is >= 0.1f and <= 0.9f)
+            if (brightnessValue is >= 0.1f and <= 0.9f)
             {
-                var lightByte = (byte)(lightValue * 255);
-                RenderLogo(x, y, 
-                    new Color(255 - lightByte, 255 - lightByte, 255 - lightByte, 255), 
-                    new Color(lightByte, lightByte, lightByte, (byte)255), 
-                    new Color(255 - lightByte, 255 - lightByte, 255 - lightByte, 255));
+                var brightnessByte = (byte)(brightnessValue * 255);
+
+                var foreground = new Color(255 - brightnessByte, 255 - brightnessByte, 255 - brightnessByte, 255);
+                var background = new Color(brightnessByte, brightnessByte, brightnessByte, (byte)255);
+                
+                    RenderLogo(x, y, foreground, background, foreground);
             }
             else
             {
-                RenderLogo(x, y, lightValue < 0.1f);
+                RenderLogo(x, y, brightnessValue < 0.1f);
             }
         }
     }
 
-    private void RenderLogo(int x, int y, bool inverted = false)
+    private static void RenderLogo(int x, int y, bool inverted = false)
     {
         var borders = inverted ? Color.RayWhite : Color.Black;
         var background = inverted ? Color.Black : Color.RayWhite;
@@ -45,7 +48,7 @@ public class CanvasRenderer
         RenderLogo(x, y, borders, background, foreground);
     }
 
-    private void RenderLogo(int x, int y, Color borders, Color background, Color foreground)
+    private static void RenderLogo(int x, int y, Color borders, Color background, Color foreground)
     {
         var xo = x * LogoSize;
         var yo = y * LogoSize;
