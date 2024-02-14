@@ -18,9 +18,9 @@ you can use `yt-dlp` or any other tool to get mp4 file
 
 we will use ffmpeg in next instructions to manipulate .mp4 files
 
-#### (if audio is in .mp4 format) extract audio from .mp4
+#### extract audio from video.mp4
 ```
-ffmpeg -i audio.mp4 -q:a 0 -map a audio.mp3
+ffmpeg -i video.mp4 -q:a 0 -map a audio.mp3
 ```
 
 #### extract .png sequence for animation
