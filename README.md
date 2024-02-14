@@ -4,11 +4,11 @@ a [bad apple animation](https://youtu.be/FtutLA63Cp8), but animated in raylib us
 watch raylib apple animation: __INSERT_VIDEO_LINK_HERE
 
 ### video summary
-- video downscale: 14x
-- logo size: 34px
-- resolution in logos: ~34 * ~26 logos
-- resolution in px: ~1156 * ~884 px
-- framerate: 15 fps
+- video downscale: 12x
+- logo size: 32px
+- resolution in logos: ~40 * ~30 logos
+- resolution in px: ~1280 * ~960 px
+- framerate: 30 fps
 
 ### getting assets for animation
 i didnt include assets of the animation, you need to do so yourself
