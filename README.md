@@ -1,7 +1,7 @@
 ﻿# raylib apple
 a [bad apple animation](https://youtu.be/FtutLA63Cp8), but animated in raylib using raylib logo
 
-watch raylib apple animation: __INSERT_VIDEO_LINK_HERE
+watch raylib apple animation: https://youtu.be/GST6euSX7I0
 
 ### video summary
 - video downscale: 12x
