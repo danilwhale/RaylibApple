@@ -21,7 +21,6 @@ internal class Program
         SetTargetFPS(Framerate);
 
         _renderer = new LogoFramesRenderer();
-        _renderer.CurrentFrame = 6500;
 
         LoadFrameFiles();
         LoadFrames();
