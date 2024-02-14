@@ -21,6 +21,7 @@ internal class Program
         SetTargetFPS(Framerate);
 
         _renderer = new LogoFramesRenderer();
+        _renderer.CurrentFrame = 6500;
 
         LoadFrameFiles();
         LoadFrames();
@@ -28,9 +29,13 @@ internal class Program
         _audio = LoadSound("audio.mp3");
         PlaySound(_audio);
 
-        while (!WindowShouldClose() && _renderer.CurrentFrame < _renderer.Frames.Length)
+        while (!WindowShouldClose())
         {
             _renderer.CurrentFrame++;
+            if (_renderer.CurrentFrame >= _renderer.Frames.Length)
+            {
+                break;
+            }
 
             BeginDrawing();
             ClearBackground(Color.RayWhite);
