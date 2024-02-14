@@ -6,6 +6,7 @@ const int downscale = 12;
 
 InitWindow(480 / downscale * CanvasRenderer.LogoSize, 360 / downscale * CanvasRenderer.LogoSize, "raylib apple");
 InitAudioDevice();
+SetTargetFPS(30);
 
 var renderer = new CanvasRenderer();
 
@@ -41,20 +42,12 @@ for (var f = 0; f < frames.Length; f++)
     UnloadImage(image);
 }
 
-var timer = 0.0f;
-const int framesPerSecond = 15;
-
 var audio = LoadSound("audio.mp3");
 PlaySound(audio);
 
 while (!WindowShouldClose() && renderer.CurrentFrame < frames.Length)
 {
-    timer += GetFrameTime();
-    if (timer > 1.0f / framesPerSecond)
-    {
-        renderer.CurrentFrame++;
-        timer = 0;
-    }
+    renderer.CurrentFrame++;
 
     BeginDrawing();
     ClearBackground(Color.RayWhite);
