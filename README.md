@@ -28,8 +28,8 @@ ffmpeg -i video.mp4 -q:a 0 -map a audio.mp3
 ffmpeg -i video.mp4 -vf fps=30 "Frames/out%d.png"
 ```
 
-`audio.mp3` **MUST** be in `PATH/TO/REPO/RaylibApple` directory
+`audio.mp3` **MUST** be in `PATH/TO/REPO/RaylibApple/RaylibApple` directory
 
-`out*.png` animation's frames **MUST** be in `PATH/TO/REPO/RaylibApple/Frames`
+`out*.png` animation's frames **MUST** be in `PATH/TO/REPO/RaylibApple/RaylibApple/Frames`
 
-if you want to change locations, change them in `RaylibApple.csproj`
+if you want to change locations, change them in `RaylibApple/RaylibApple.csproj`
