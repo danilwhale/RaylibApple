@@ -25,7 +25,7 @@ ffmpeg -i audio.mp4 -q:a 0 -map a audio.mp3
 
 #### extract .png sequence for animation
 ```
-ffmpeg -i video.mp4 -vf fps=15 "Frames/out%d.png"
+ffmpeg -i video.mp4 -vf fps=30 "Frames/out%d.png"
 ```
 
 `audio.mp3` **MUST** be in `PATH/TO/REPO/RaylibApple` directory
